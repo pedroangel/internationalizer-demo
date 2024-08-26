@@ -8,8 +8,8 @@ Este proyecto es una aplicación React sencilla que utiliza `react-i18next` para
 Para comenzar, clona el repositorio del proyecto:
 
 ```bash
-git clone https://github.com/tu-usuario/tu-repositorio.git
-cd tu-repositorio
+git clone [https://github.com/tu-usuario/tu-repositorio.git](https://github.com/pedroangel/internationalizer-demo.git)
+cd internationalizer-demo
 ```
 
 ## Instalación de Dependencias
