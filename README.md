@@ -8,7 +8,7 @@ Este proyecto es una aplicación React sencilla que utiliza `react-i18next` para
 Para comenzar, clona el repositorio del proyecto:
 
 ```bash
-git clone [https://github.com/tu-usuario/tu-repositorio.git](https://github.com/pedroangel/internationalizer-demo.git)
+git clone https://github.com/pedroangel/internationalizer-demo.git
 cd internationalizer-demo
 ```
 
@@ -49,16 +49,15 @@ Este proyecto utiliza `react-i18next` para la internacionalización. A continuac
    ```javascript
    import i18n from 'i18next';
    import { initReactI18next } from 'react-i18next';
-   import translations from './locales/translations.json'; // Asumiendo que tus traducciones están en este archivo
 
    i18n
      .use(initReactI18next)
      .init({
-       resources: translations,
+       resources: translations, //translations es el objeto respuesta bien sea del objeto JSON contenido en el proyecto o la respuesta del servicio (https://internationalizer.rj.r.appspot.com/API/texts/)
        lng: 'en', // Idioma predeterminado
        fallbackLng: 'en',
        interpolation: {
-         escapeValue: false, // React ya hace la escapada por defecto
+         escapeValue: false,
        },
      });
 
@@ -70,6 +69,8 @@ Este proyecto utiliza `react-i18next` para la internacionalización. A continuac
    Importa el hook `useTranslation` en los componentes donde necesitas traducciones y úsalo para acceder a las claves de traducción:
 
    ```javascript
+    // Ejemplo simple, nuestro componente Home es mas complejo
+   
    import React from 'react';
    import { useTranslation } from 'react-i18next';
 
@@ -89,7 +90,7 @@ Este proyecto utiliza `react-i18next` para la internacionalización. A continuac
 
 4. **Administración de Traducciones:**
 
-   Las traducciones se almacenan en un archivo JSON estructurado por idioma. Aquí un ejemplo básico de cómo podría verse `translations.json`:
+   Las traducciones son traida de la API (https://internationalizer.rj.r.appspot.com/API/texts/) a traves de un `fetch` y el objeto es transformado a la estructura requerida por la libreria i18n. Aquí un ejemplo básico de cómo podría verse el objeto `translations`:
 
    ```json
    {
@@ -122,6 +123,4 @@ Este proyecto utiliza `react-i18next` para la internacionalización. A continuac
 
 ## Despliegue
 
-Para desplegar esta aplicación en Google App Engine, sigue estos pasos:
-
-1. Construye la aplicación para producción:
+Se le hizo Deploy a este proyecto Demo a Google Cloud y pueden acceder a el en esta URL:  https://internationalizer-demo.rj.r.appspot.com/
